@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/img_storefront.svg" type="image/x-icon">
+    <title>Top NFT Creators Rankings | NFT Marketplace | Digital Art Leaders</title>
+    <meta name="description" content="Discover top-ranking NFT creators and artists on our marketplace. View real-time rankings, trading volumes, and performance metrics of leading digital artists and NFT creators.">
+    <meta name="keywords" content="NFT creators, NFT artists, NFT rankings, digital art marketplace, crypto art, blockchain artists, NFT leaderboard">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Top NFT Creators Rankings | NFT Marketplace">
+    <meta property="og:description" content="Discover top-ranking NFT creators and artists on our marketplace. View real-time rankings, trading volumes, and performance metrics.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleguide.css">
+    <link rel="stylesheet" href="globals.css">
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        /* Layout components */
+        .main-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #2b2b2b;
+        }
+        
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 16px;
+            background-color: #2b2b2b;
+        }
+        
+        .header-logo {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .logo-text {
+            width: 198px;
+            height: 18px;
+        }
+        
+        .header-nav {
+            display: none;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-item {
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        
+        .sign-up-btn {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 18px 30px 18px 62px;
+            background-color: #a259ff;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .user-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .hero-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 78px 16px;
+            background-color: #2b2b2b;
+        }
+        
+        .hero-content {
+            width: 100%;
+            max-width: 1050px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 38px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #ffffff;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 16px;
+        }
+        
+        .tabs-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2b2b2b;
+            padding: 0 16px;
+        }
+        
+        .tabs-container {
+            width: 100%;
+            max-width: 874px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tab-item {
+            padding: 12px 16px;
+            font-size: 18px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 22px;
+            text-align: center;
+            text-transform: capitalize;
+            color: #858584;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab-item.active {
+            color: #ffffff;
+            border-bottom: 2px solid #858584;
+        }
+        
+        .table-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px 16px;
+            background-color: #2b2b2b;
+        }
+        
+        .table-container {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+        
+        .table-header {
+            display: none;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 8px 0;
+            border: 1px solid #3b3b3b;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .table-header-cell {
+            font-size: 16px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 400;
+            line-height: 24px;
+            color: #858584;
+            padding: 8px 16px;
+        }
+        
+        .table-data {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .table-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 16px;
+            background-color: #3b3b3b;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .table-row:hover {
+            background-color: #404040;
+            transform: translateY(-2px);
+        }
+        
+        .row-main {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .rank-number {
+            font-size: 16px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: center;
+            color: #858584;
+            background-color: #2b2b2b;
+            border-radius: 14px;
+            padding: 8px 12px;
+            min-width: 40px;
+        }
+        
+        .artist-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+        
+        .artist-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+        
+        .artist-name {
+            font-size: 18px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 22px;
+            text-transform: capitalize;
+            color: #ffffff;
+        }
+        
+        .row-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 400;
+            color: #858584;
+            text-transform: uppercase;
+        }
+        
+        .stat-value {
+            font-size: 14px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 400;
+            line-height: 20px;
+            color: #ffffff;
+        }
+        
+        .change-positive {
+            color: #00ac4f;
+        }
+        
+        .footer {
+            width: 100%;
+            background-color: #3b3b3b;
+            border-top: 2px solid #2b2b2b;
+            padding: 36px 16px;
+        }
+        
+        .footer-content {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .footer-logo {
+            width: 242px;
+            height: 32px;
+        }
+        
+        .footer-description {
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 22px;
+            color: #cccccc;
+            max-width: 300px;
+        }
+        
+        .social-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .social-title {
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 19px;
+            color: #cccccc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .footer-nav-title {
+            font-size: 22px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 33px;
+            text-transform: capitalize;
+            color: #ffffff;
+        }
+        
+        .footer-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .footer-nav-link {
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 19px;
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav-link:hover {
+            color: #ffffff;
+        }
+        
+        .newsletter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .newsletter-title {
+            font-size: 22px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 33px;
+            text-transform: capitalize;
+            color: #ffffff;
+        }
+        
+        .newsletter-description {
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 22px;
+            color: #cccccc;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 16px;
+        }
+        
+        .newsletter-input {
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 19px;
+            color: #2b2b2b;
+            outline: none;
+            flex: 1;
+        }
+        
+        .newsletter-input::placeholder {
+            color: #2b2b2b;
+        }
+        
+        .newsletter-btn {
+            background-color: #a259ff;
+            border-radius: 20px;
+            padding: 18px 34px;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #8a47e0;
+            transform: translateY(-2px);
+        }
+        
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #858584;
+        }
+        
+        .footer-copyright {
+            font-size: 12px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 15px;
+            color: #cccccc;
+            text-align: center;
+        }
+        
+        /* Interactive states */
+        .nav-item:hover {
+            color: #a259ff;
+            transition: color 0.3s ease;
+        }
+        
+        .sign-up-btn:hover {
+            background-color: #8a47e0;
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        .tab-item:hover {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        
+        /* Responsive media queries */
+        @media (min-width: 640px) {
+            .header {
+                padding: 20px 32px;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+                line-height: 48px;
+            }
+            
+            .hero-description {
+                font-size: 20px;
+                line-height: 24px;
+            }
+            
+            .tabs-container {
+                gap: 16px;
+            }
+            
+            .tab-item {
+                padding: 14px 24px;
+                font-size: 20px;
+            }
+            
+            .table-section {
+                padding: 40px 32px;
+            }
+            
+            .table-row {
+                flex-direction: row;
+                align-items: center;
+                padding: 20px;
+            }
+            
+            .row-stats {
+                flex-direction: row;
+                margin-top: 0;
+                gap: 32px;
+            }
+            
+            .stat-item {
+                flex-direction: row;
+                gap: 8px;
+            }
+            
+            .stat-label {
+                font-size: 14px;
+            }
+            
+            .stat-value {
+                font-size: 16px;
+            }
+            
+            .artist-name {
+                font-size: 20px;
+            }
+            
+            .footer {
+                padding: 36px 32px;
+            }
+            
+            .footer-main {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .newsletter-form {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .header-nav {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 45px;
+                line-height: 54px;
+                text-align: left;
+            }
+            
+            .hero-description {
+                font-size: 22px;
+                line-height: 26px;
+                text-align: left;
+            }
+            
+            .table-header {
+                display: flex;
+            }
+            
+            .table-row {
+                background-color: transparent;
+                border-radius: 0;
+                padding: 0;
+                gap: 0;
+            }
+            
+            .row-main {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 20px 0;
+                border-bottom: 1px solid #3b3b3b;
+            }
+            
+            .rank-number {
+                min-width: 60px;
+                margin-right: 20px;
+            }
+            
+            .artist-info {
+                width: 40%;
+            }
+            
+            .row-stats {
+                width: 60%;
+                justify-content: flex-end;
+                gap: 80px;
+                margin-top: 0;
+            }
+            
+            .stat-item {
+                min-width: 100px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .header {
+                padding: 20px 50px;
+            }
+            
+            .hero-title {
+                font-size: 51px;
+                line-height: 60px;
+            }
+            
+            .hero-description {
+                font-size: 22px;
+                line-height: 26px;
+            }
+            
+            .tab-item {
+                font-size: 22px;
+                padding: 14px 32px;
+            }
+            
+            .footer-main {
+                gap: 64px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .hero-content {
+                margin-left: 114px;
+                margin-right: 114px;
+            }
+            
+            .footer-content {
+                margin-left: 114px;
+                margin-right: 114px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="homepage-desktop">
+            <!-- Navigation -->
+            <header class="header" role="banner">
+                <div class="header-logo">
+                    <a href="index.html" aria-label="NFT Marketplace Home">
+                        <img class="logo-icon" src="assets/images/img_storefront.svg" alt="NFT Marketplace Logo">
+                        <img class="logo-text" src="assets/images/img_nft_marketplace.svg" alt="NFT Marketplace">
+                    </a>
+                </div>
+                
+                <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <nav class="nav-nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+                    <a href="optimized-marketplace.html">
+                        <div class="div">
+                            <div class="button">Marketplace</div>
+                        </div>
+                    </a>
+                    <a href="optimized-rankings.html">
+                        <div class="div">
+                            <div class="button">Rankings</div>
+                        </div>
+                    </a>
+                    <a href="optimized-connect-wallet.html">
+                        <div class="div">
+                            <div class="button">Connect a wallet</div>
+                        </div>
+                    </a>
+                    <a href="optimized-register.html">
+                        <div class="sign-up">
+                            <img class="img" src="assets/images/img_user.svg" alt="User Icon" />
+                            <div class="button">Sign Up</div>
+                        </div>
+                    </a>
+                </nav>
+            </header>
+
+            <main>
+                <!-- Hero Section -->
+                <section class="hero-section" aria-labelledby="rankings-heading">
+                    <div class="hero-content">
+                        <h1 id="rankings-heading" class="hero-title">Top Creators</h1>
+                        <p class="hero-description">Check out top ranking NFT artists on the NFT Marketplace.</p>
+                    </div>
+                </section>
+
+                <!-- Tabs Section -->
+                <section class="tabs-section" aria-label="Time period filters">
+                    <div class="tabs-container">
+                        <button class="tab-item active" role="tab" aria-selected="true" data-tab="today">Today</button>
+                        <button class="tab-item" role="tab" aria-selected="false" data-tab="week">This Week</button>
+                        <button class="tab-item" role="tab" aria-selected="false" data-tab="month">This Month</button>
+                        <button class="tab-item" role="tab" aria-selected="false" data-tab="all">All Time</button>
+                    </div>
+                </section>
+
+                <!-- Rankings Table -->
+                <section class="table-section" aria-labelledby="rankings-table-heading">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <div class="table-header-cell" style="padding-left: 30px; padding-right: 30px;">#</div>
+                            <div class="table-header-cell">Artist</div>
+                            <div class="table-header-cell">Change</div>
+                            <div class="table-header-cell">NFTs Sold</div>
+                            <div class="table-header-cell">Volume</div>
+                        </div>
+                        
+                        <div class="table-data">
+                            <!-- Ranking Row 1 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">1</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder.png" alt="Jaydon Ekstrom Bothman avatar" class="artist-avatar">
+                                        <div class="artist-name">Jaydon Ekstrom Bothman</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 2 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">2</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_60x60.png" alt="Ruben Carder avatar" class="artist-avatar">
+                                        <div class="artist-name">Ruben Carder</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 3 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">3</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_1.png" alt="Alfredo Septimus avatar" class="artist-avatar">
+                                        <div class="artist-name">Alfredo Septimus</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 4 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">4</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_2.png" alt="Davis Franci avatar" class="artist-avatar">
+                                        <div class="artist-name">Davis Franci</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 5 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">5</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_3.png" alt="Livia Rosser avatar" class="artist-avatar">
+                                        <div class="artist-name">Livia Rosser</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 6 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">6</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_4.png" alt="Kianna Donin avatar" class="artist-avatar">
+                                        <div class="artist-name">Kianna Donin</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 7 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">7</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_5.png" alt="Phillip Lipshutz avatar" class="artist-avatar">
+                                        <div class="artist-name">Phillip Lipshutz</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 8 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">8</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_6.png" alt="Maria Rosser avatar" class="artist-avatar">
+                                        <div class="artist-name">Maria Rosser</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 9 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">9</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_7.png" alt="Kianna Stanton avatar" class="artist-avatar">
+                                        <div class="artist-name">Kianna Stanton</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 10 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">10</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_8.png" alt="Angel Lubin avatar" class="artist-avatar">
+                                        <div class="artist-name">Angel Lubin</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 11 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">11</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_9.png" alt="Allison Torff avatar" class="artist-avatar">
+                                        <div class="artist-name">Allison Torff</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 12 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">12</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_10.png" alt="Davis Workman avatar" class="artist-avatar">
+                                        <div class="artist-name">Davis Workman</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 13 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">13</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_11.png" alt="Lindsey Lipshutz avatar" class="artist-avatar">
+                                        <div class="artist-name">Lindsey Lipshutz</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 14 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">14</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_12.png" alt="Randy Carder avatar" class="artist-avatar">
+                                        <div class="artist-name">Randy Carder</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 15 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">15</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_13.png" alt="Lydia Culhane avatar" class="artist-avatar">
+                                        <div class="artist-name">Lydia Culhane</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 16 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">16</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_14.png" alt="Rayna Bator avatar" class="artist-avatar">
+                                        <div class="artist-name">Rayna Bator</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 17 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">17</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_15.png" alt="Jocelyn Westervelt avatar" class="artist-avatar">
+                                        <div class="artist-name">Jocelyn Westervelt</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 18 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">18</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder.png" alt="Marilyn Torff avatar" class="artist-avatar">
+                                        <div class="artist-name">Marilyn Torff</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 19 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">19</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_8.png" alt="Skylar Levin avatar" class="artist-avatar">
+                                        <div class="artist-name">Skylar Levin</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Ranking Row 20 -->
+                            <article class="table-row">
+                                <div class="row-main">
+                                    <div class="rank-number">20</div>
+                                    <div class="artist-info">
+                                        <img src="assets/images/img_avatar_placeholder_1.png" alt="Terry Dorwart avatar" class="artist-avatar">
+                                        <div class="artist-name">Terry Dorwart</div>
+                                    </div>
+                                    <div class="row-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Change</span>
+                                            <span class="stat-value change-positive">+1.41%</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">NFTs Sold</span>
+                                            <span class="stat-value">602</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Volume</span>
+                                            <span class="stat-value">12.4 ETH</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer" role="contentinfo">
+                <div class="footer-content">
+                    <div class="footer-main">
+                        <div class="footer-brand">
+                            <img src="assets/images/img_footer_logo.png" alt="NFT Marketplace Logo" class="footer-logo">
+                            <p class="footer-description">NFT marketplace UI created with Anima for Figma.</p>
+                            <div class="social-section">
+                                <p class="social-title">Join our community</p>
+                                <div class="social-links">
+                                    <a href="#" aria-label="Discord">
+                                        <img src="assets/images/img_discordlogo.svg" alt="Discord" class="social-icon">
+                                    </a>
+                                    <a href="#" aria-label="YouTube">
+                                        <img src="assets/images/img_youtubelogo.svg" alt="YouTube" class="social-icon">
+                                    </a>
+                                    <a href="#" aria-label="Twitter">
+                                        <img src="assets/images/img_twitterlogo.svg" alt="Twitter" class="social-icon">
+                                    </a>
+                                    <a href="#" aria-label="Instagram">
+                                        <img src="assets/images/img_instagramlogo.svg" alt="Instagram" class="social-icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-nav">
+                            <h3 class="footer-nav-title">Explore</h3>
+                            <ul class="footer-nav-list">
+                                <li><a href="optimized-marketplace.html" class="footer-nav-link">Marketplace</a></li>
+                                <li><a href="optimized-rankings.html" class="footer-nav-link">Rankings</a></li>
+                                <li><a href="optimized-connect-wallet.html" class="footer-nav-link">Connect a wallet</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="newsletter-section">
+                            <h3 class="newsletter-title">Join our weekly digest</h3>
+                            <p class="newsletter-description">Get exclusive promotions & updates straight to your inbox.</p>
+                            <form class="newsletter-form" aria-label="Footer newsletter subscription form">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email here" required>
+                                <button type="submit" class="newsletter-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-divider"></div>
+                    <p class="footer-copyright">Ⓒ NFT Market. Use this template freely.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-item');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabButtons.forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.setAttribute('aria-selected', 'false');
+                });
+                
+                // Add active class to clicked tab
+                button.classList.add('active');
+                button.setAttribute('aria-selected', 'true');
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('.newsletter-input').value;
+            if (email) {
+                alert('Thank you for subscribing!');
+                e.target.reset();
+            }
+        });
+    </script>
+</body>
+</html>

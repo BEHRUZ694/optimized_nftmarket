@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | NFT Marketplace | Join Digital Art Community</title>
+    <meta name="description" content="Join the premier NFT marketplace. Create your account to start collecting, trading, and creating digital art. Secure registration with blockchain verification and instant access to NFTs.">
+    <meta name="keywords" content="NFT marketplace, create account, digital art, blockchain, cryptocurrency, NFT registration, sign up, crypto wallet, digital collectibles">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Create Account | NFT Marketplace | Join Digital Art Community">
+    <meta property="og:description" content="Join the premier NFT marketplace. Create your account to start collecting, trading, and creating digital art.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nft-marketplace.com/register.html">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Create Account | NFT Marketplace | Join Digital Art Community">
+    <meta name="twitter:description" content="Join the premier NFT marketplace. Create your account to start collecting, trading, and creating digital art.">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/img_storefront.svg" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Layout components */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #2b2b2b;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 16px;
+            background-color: #2b2b2b;
+            width: 100%;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .storefront-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .marketplace-text {
+            width: 148px;
+            height: 20px;
+        }
+
+        .sign-up-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 30px 18px 62px;
+            background-color: #a259ff;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .sign-up-btn:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-image: url('assets/images/img_user.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .sign-up-btn:hover {
+            background-color: #8b47d9;
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: block;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #2b2b2b;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 38px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            padding: 32px 16px;
+        }
+
+        .form-header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 38px;
+            text-align: left;
+            text-transform: capitalize;
+            color: #ffffff;
+        }
+
+        .form-subtitle {
+            font-size: 18px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 28px;
+            text-align: left;
+            text-transform: capitalize;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .input-label {
+            font-size: 14px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 17px;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 16px 50px 16px 50px;
+            background-color: #3b3b3b;
+            border: 2px solid #3b3b3b;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 19px;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #a259ff;
+        }
+
+        .input-field::placeholder {
+            color: #858584;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 16px 0;
+            background-color: #a259ff;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            line-height: 19px;
+            text-align: center;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .register-btn:hover {
+            background-color: #8b47d9;
+            transform: scale(1.02);
+        }
+
+        .register-btn:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .terms-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .terms-text {
+            font-size: 14px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 17px;
+            color: #ffffff;
+        }
+
+        .terms-link {
+            color: #a259ff;
+            text-decoration: none;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+
+        .login-link {
+            font-size: 14px;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            line-height: 17px;
+            color: #ffffff;
+        }
+
+        .login-link-text {
+            color: #a259ff;
+            text-decoration: none;
+        }
+
+        .login-link-text:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 24px 16px;
+            }
+
+            .form-title {
+                font-size: 28px;
+                line-height: 34px;
+            }
+
+            .form-subtitle {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .hero-image {
+                height: 200px;
+            }
+        }
+
+        /* Accessibility improvements */
+        .input-field:focus-visible {
+            outline: 2px solid #a259ff;
+            outline-offset: 2px;
+        }
+
+        .register-btn:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* Error states */
+        .input-field.error {
+            border-color: #ff4444;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* Success states */
+        .success-message {
+            color: #00ac4f;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header/Navigation -->
+        <header class="header" role="banner">
+            <div class="logo-section">
+                <a href="index.html" class="logo" aria-label="NFT Marketplace Home">
+                    <img class="storefront-icon" src="assets/images/img_storefront.svg" alt="Storefront Icon" />
+                    <img class="marketplace-text" src="assets/images/img_nft_marketplace.svg" alt="NFT Marketplace" />
+                </a>
+            </div>
+
+            <a href="optimized-register.html" class="sign-up-btn" aria-label="Sign up for NFT marketplace account">
+                Sign Up
+            </a>
+
+            <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+                ☰
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content-section">
+            <img class="hero-image" src="assets/images/img_image_placeholder.png" alt="Space-themed NFT artwork showing astronauts and futuristic spacecraft" loading="lazy" />
+
+            <section class="form-section" aria-labelledby="register-form-title">
+                <header class="form-header">
+                    <h1 id="register-form-title" class="form-title">Create account</h1>
+                    <p class="form-subtitle">Welcome! enter your details and start creating, collecting and selling NFTs.</p>
+                </header>
+
+                <form class="form-container" id="registerForm" novalidate>
+                    <div class="input-group">
+                        <label for="username" class="input-label">Username</label>
+                        <div class="input-wrapper">
+                            <img class="input-icon" src="assets/images/img_user.svg" alt="User icon" />
+                            <input type="text" id="username" name="username" class="input-field" placeholder="Enter username" required aria-describedby="username-error" />
+                        </div>
+                        <div id="username-error" class="error-message" aria-live="polite"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email" class="input-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <img class="input-icon" src="assets/images/img_envelopesimple.svg" alt="Email icon" />
+                            <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required aria-describedby="email-error" />
+                        </div>
+                        <div id="email-error" class="error-message" aria-live="polite"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password" class="input-label">Password</label>
+                        <div class="input-wrapper">
+                            <img class="input-icon" src="assets/images/img_lockkey.svg" alt="Password icon" />
+                            <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password" required minlength="6" aria-describedby="password-error" />
+                        </div>
+                        <div id="password-error" class="error-message" aria-live="polite"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmPassword" class="input-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <img class="input-icon" src="assets/images/img_lockkey.svg" alt="Confirm password icon" />
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="input-field" placeholder="Confirm your password" required minlength="6" aria-describedby="confirm-password-error" />
+                        </div>
+                        <div id="confirm-password-error" class="error-message" aria-live="polite"></div>
+                    </div>
+
+                    <button type="submit" class="register-btn" id="registerBtn" aria-describedby="register-status">
+                        Create account
+                    </button>
+
+                    <div id="register-status" class="success-message" aria-live="polite"></div>
+                </form>
+
+                <section class="terms-section" aria-labelledby="terms-title">
+                    <p class="terms-text">
+                        By creating an account, you agree to our
+                        <a href="#" class="terms-link">Terms of Service</a> and
+                        <a href="#" class="terms-link">Privacy Policy</a>
+                    </p>
+
+                    <p class="login-link">
+                        Already have an account?
+                        <a href="optimized-connect-wallet.html" class="login-link-text">Connect Wallet</a>
+                    </p>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Form validation and enhancement -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registerForm');
+            const registerBtn = document.getElementById('registerBtn');
+            const statusDiv = document.getElementById('register-status');
+
+            // Form validation
+            function validateField(field, fieldName) {
+                const value = field.value.trim();
+                const errorDiv = document.getElementById(field.id + '-error');
+                let isValid = true;
+                let message = '';
+
+                switch(fieldName) {
+                    case 'username':
+                        if (!value) {
+                            message = 'Username is required';
+                            isValid = false;
+                        } else if (value.length < 3) {
+                            message = 'Username must be at least 3 characters';
+                            isValid = false;
+                        } else if (!/^[a-zA-Z0-9_]+$/.test(value)) {
+                            message = 'Username can only contain letters, numbers, and underscores';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'email':
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!value) {
+                            message = 'Email is required';
+                            isValid = false;
+                        } else if (!emailRegex.test(value)) {
+                            message = 'Please enter a valid email address';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'password':
+                        if (!value) {
+                            message = 'Password is required';
+                            isValid = false;
+                        } else if (value.length < 6) {
+                            message = 'Password must be at least 6 characters';
+                            isValid = false;
+                        } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(value)) {
+                            message = 'Password must contain uppercase, lowercase, and number';
+                            isValid = false;
+                        }
+                        break;
+
+                    case 'confirmPassword':
+                        const password = document.getElementById('password').value;
+                        if (!value) {
+                            message = 'Please confirm your password';
+                            isValid = false;
+                        } else if (value !== password) {
+                            message = 'Passwords do not match';
+                            isValid = false;
+                        }
+                        break;
+                }
+
+                if (!isValid) {
+                    field.classList.add('error');
+                    errorDiv.textContent = message;
+                } else {
+                    field.classList.remove('error');
+                    errorDiv.textContent = '';
+                }
+
+                return isValid;
+            }
+
+            // Real-time validation
+            const fields = ['username', 'email', 'password', 'confirmPassword'];
+            fields.forEach(fieldName => {
+                const field = document.getElementById(fieldName);
+                field.addEventListener('blur', () => validateField(field, fieldName));
+                field.addEventListener('input', () => {
+                    if (field.classList.contains('error')) {
+                        validateField(field, fieldName);
+                    }
+                });
+            });
+
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                let isFormValid = true;
+                fields.forEach(fieldName => {
+                    const field = document.getElementById(fieldName);
+                    if (!validateField(field, fieldName)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (isFormValid) {
+                    registerBtn.disabled = true;
+                    registerBtn.textContent = 'Creating Account...';
+
+                    // Simulate account creation (replace with actual API call)
+                    setTimeout(() => {
+                        statusDiv.textContent = 'Account created successfully! Welcome to NFT Marketplace!';
+                        statusDiv.className = 'success-message';
+                        form.reset();
+
+                        // Redirect to wallet connection after success
+                        setTimeout(() => {
+                            window.location.href = 'optimized-connect-wallet.html';
+                        }, 2000);
+                    }, 1500);
+                }
+            });
+
+            // Password visibility toggle (optional enhancement)
+            function addPasswordToggle(inputId) {
+                const input = document.getElementById(inputId);
+                const wrapper = input.parentElement;
+
+                const toggleBtn = document.createElement('button');
+                toggleBtn.type = 'button';
+                toggleBtn.className = 'password-toggle';
+                toggleBtn.innerHTML = '👁️';
+                toggleBtn.setAttribute('aria-label', 'Toggle password visibility');
+                toggleBtn.style.cssText = `
+                    position: absolute;
+                    right: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: #858584;
+                    cursor: pointer;
+                    font-size: 16px;
+                `;
+
+                toggleBtn.addEventListener('click', function() {
+                    const type = input.type === 'password' ? 'text' : 'password';
+                    input.type = type;
+                    this.innerHTML = type === 'password' ? '👁️' : '🙈';
+                });
+
+                wrapper.style.position = 'relative';
+                wrapper.appendChild(toggleBtn);
+            }
+
+            // Add password toggles
+            addPasswordToggle('password');
+            addPasswordToggle('confirmPassword');
+
+            // Keyboard navigation improvements
+            form.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+                    e.preventDefault();
+                    const inputs = Array.from(form.querySelectorAll('input'));
+                    const currentIndex = inputs.indexOf(e.target);
+                    if (currentIndex < inputs.length - 1) {
+                        inputs[currentIndex + 1].focus();
+                    } else {
+                        registerBtn.focus();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

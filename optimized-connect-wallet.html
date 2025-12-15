@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Wallet | NFT Marketplace | Secure Web3 Integration</title>
+    <meta name="description" content="Connect your cryptocurrency wallet to the NFT marketplace. Securely link MetaMask, WalletConnect, Coinbase, Ledger, Trezor, and Trust Wallet for NFT trading.">
+    <meta name="keywords" content="connect wallet, NFT marketplace, MetaMask, WalletConnect, Coinbase wallet, Ledger, Trezor, Trust Wallet, Web3, blockchain">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Connect Wallet | NFT Marketplace | Secure Web3 Integration">
+    <meta property="og:description" content="Connect your cryptocurrency wallet to the NFT marketplace. Securely link MetaMask, WalletConnect, Coinbase, Ledger, Trezor, and Trust Wallet for NFT trading.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nft-marketplace.com/connect-wallet.html">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect Wallet | NFT Marketplace | Secure Web3 Integration">
+    <meta name="twitter:description" content="Connect your cryptocurrency wallet to the NFT marketplace. Securely link MetaMask, WalletConnect, Coinbase, Ledger, Trezor, and Trust Wallet for NFT trading.">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/img_storefront.svg" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Web3.js for wallet integration -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+
+    <style>
+        .wallet-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 80px 195px;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+            background-color: var(--background);
+            text-align: center;
+        }
+
+        .wallet-hero h1 {
+            font-family: var(--h1-work-sans-font-family);
+            font-weight: var(--h1-work-sans-font-weight);
+            color: var(--white);
+            font-size: 48px;
+            letter-spacing: var(--h1-work-sans-letter-spacing);
+            line-height: var(--h1-work-sans-line-height);
+            margin: 0;
+        }
+
+        .wallet-hero p {
+            font-family: var(--body-text-work-sans-font-family);
+            font-weight: var(--body-text-work-sans-font-weight);
+            color: var(--white);
+            font-size: var(--body-text-work-sans-font-size);
+            max-width: 600px;
+        }
+
+        .homepage-desktop .wallet-cards-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 195px;
+            position: relative;
+            align-self: stretch;
+            width: 100%;
+            flex: 0 0 auto;
+            background-color: var(--background);
+        }
+
+        .wallet-section-headline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .wallet-section-headline h2 {
+            font-family: var(--h3-work-sans-font-family);
+            font-weight: var(--h3-work-sans-font-weight);
+            color: var(--white);
+            font-size: var(--h3-work-sans-font-size);
+            margin: 0;
+        }
+
+        .wallet-section-headline p {
+            font-family: var(--body-text-work-sans-font-family);
+            font-weight: var(--body-text-work-sans-font-weight);
+            color: var(--white);
+            font-size: var(--body-text-work-sans-font-size);
+            margin: 0;
+        }
+
+        .wallet-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .wallet-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 40px;
+            position: relative;
+            background-color: #3b3b3b;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wallet-card:hover {
+            transform: scale(0.98);
+            background-color: #4a4a4a;
+        }
+
+        .wallet-icon {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a259ff, #6f42c1);
+        }
+
+        .wallet-icon img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .wallet-card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .wallet-card-title {
+            font-family: var(--h5-work-sans-font-family);
+            font-weight: var(--h5-work-sans-font-weight);
+            color: var(--white);
+            font-size: var(--h5-work-sans-font-size);
+            margin: 0;
+        }
+
+        .wallet-card-desc {
+            font-family: var(--body-text-work-sans-font-family);
+            font-weight: var(--body-text-work-sans-font-weight);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .wallet-connect-btn {
+            all: unset;
+            box-sizing: border-box;
+            display: inline-flex;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 30px;
+            position: relative;
+            background-color: var(--call-to-action);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: "Work Sans", Helvetica;
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .wallet-connect-btn:hover {
+            transform: scale(0.95);
+            background-color: #8a4fd6;
+        }
+
+        .wallet-connect-btn:active {
+            transform: scale(0.9);
+        }
+
+        .wallet-connect-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Ensure wallet icons are consistent */
+        .wallet-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* Loading state for wallet icons */
+        .wallet-icon img[loading] {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage-desktop">
+        <!-- Navigation Bar -->
+        <header class="navigation" role="banner">
+            <div class="nav-logo">
+                <a href="index.html" aria-label="NFT Marketplace Home">
+                    <div class="logo">
+                        <img class="storefront" src="assets/images/img_storefront.svg" alt="Storefront Icon" />
+                        <img class="NFT-marketplace" src="assets/images/img_nft_marketplace.svg" alt="NFT Marketplace" />
+                    </div>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu -->
+            <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="nav-nav-menu" id="navMenu" role="navigation" aria-label="Main navigation">
+                <a href="optimized-marketplace.html" aria-label="Browse NFT marketplace">
+                    <div class="div">
+                        <div class="button">Marketplace</div>
+                    </div>
+                </a>
+                <a href="optimized-rankings.html" aria-label="View NFT creator rankings">
+                    <div class="div">
+                        <div class="button">Rankings</div>
+                    </div>
+                </a>
+                <a href="optimized-connect-wallet.html" aria-label="Connect cryptocurrency wallet" aria-current="page">
+                    <div class="div">
+                        <div class="button">Connect a wallet</div>
+                    </div>
+                </a>
+                <a href="optimized-register.html" aria-label="Sign up for NFT marketplace account">
+                    <div class="sign-up">
+                        <img class="img" src="assets/images/img_user.svg" alt="User account icon" />
+                        <div class="button">Sign Up</div>
+                    </div>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main>
+            <section class="wallet-hero" aria-labelledby="wallet-hero-heading">
+                <h1 id="wallet-hero-heading">Connect Your Wallet</h1>
+                <p>Connect your cryptocurrency wallet to start buying, selling, and collecting NFTs on our marketplace.</p>
+            </section>
+
+            <!-- Wallet Selection Section -->
+            <section class="wallet-cards-section" aria-labelledby="wallet-section-heading">
+                <header class="wallet-section-headline">
+                    <h2 id="wallet-section-heading">Choose Your Wallet</h2>
+                    <p>Select your preferred wallet provider to get started</p>
+                </header>
+
+                <div class="wallet-cards-container" role="list">
+                    <!-- MetaMask Wallet Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMZmY2NzEyIi8+Cjx0ZXh0IHg9IjMwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NRVRBPC90ZXh0Pgo8L3N2Zz4K'" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">MetaMask</h3>
+                            <p class="wallet-card-desc">Browser extension and mobile wallet</p>
+                            <button class="wallet-connect-btn" data-wallet="metamask" aria-label="Connect MetaMask wallet">Connect MetaMask</button>
+                        </div>
+                    </article>
+
+                    <!-- WalletConnect Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://raw.githubusercontent.com/WalletConnect/walletconnect-assets/master/assets/walletconnect-logo.svg" alt="WalletConnect Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMzMzY2ZmYiLz4KPHRleHQgeD0iMzAiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPldDPC90ZXh0Pgo8L3N2Zz4K'" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">WalletConnect</h3>
+                            <p class="wallet-card-desc">Connect any compatible wallet</p>
+                            <button class="wallet-connect-btn" data-wallet="walletconnect" aria-label="Connect WalletConnect wallet">Connect WalletConnect</button>
+                        </div>
+                    </article>
+
+                    <!-- Coinbase Wallet Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://assets-global.website-files.com/5f15b5e8a2b836d6c0e3e8d8/5f15b5e8a2b8364e78e3e8db_coinbase-wallet-logo.svg" alt="Coinbase Wallet Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMxNjUzZmEiLz4KPHRleHQgeD0iMzAiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNCPC90ZXh0Pgo8L3N2Zz4K'" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">Coinbase Wallet</h3>
+                            <p class="wallet-card-desc">Self-hosted cryptocurrency wallet</p>
+                            <button class="wallet-connect-btn" data-wallet="coinbase" aria-label="Connect Coinbase wallet">Connect Coinbase</button>
+                        </div>
+                    </article>
+
+                    <!-- Ledger Hardware Wallet Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/LedgerHQ/ledger-live-desktop@develop/static/assets/icons/ledger-logo.svg" alt="Ledger Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMwMDgwMDAiLz4KPHRleHQgeD0iMzAiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxFRDwvdGV4dD4KPC9zdmc+Cg=='" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">Ledger</h3>
+                            <p class="wallet-card-desc">Hardware wallet for maximum security</p>
+                            <button class="wallet-connect-btn" data-wallet="ledger" aria-label="Connect Ledger hardware wallet">Connect Ledger</button>
+                        </div>
+                    </article>
+
+                    <!-- Trezor Hardware Wallet Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://raw.githubusercontent.com/trezor/trezor-suite/develop/packages/suite-data/files/images/trezor-logo-horizontal.svg" alt="Trezor Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiMxYjE5MTkiLz4KPHRleHQgeD0iMzAiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRSWjwvdGV4dD4KPC9zdmc+Cg=='" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">Trezor</h3>
+                            <p class="wallet-card-desc">Hardware wallet with top security</p>
+                            <button class="wallet-connect-btn" data-wallet="trezor" aria-label="Connect Trezor hardware wallet">Connect Trezor</button>
+                        </div>
+                    </article>
+
+                    <!-- Trust Wallet Card -->
+                    <article class="wallet-card" role="listitem" tabindex="0">
+                        <div class="wallet-icon">
+                            <img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/info/logo.png" alt="Trust Wallet Logo" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM1MDRGRjQiLz4KPHRleHQgeD0iMzAiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRXPC90ZXh0Pgo8L3N2Zz4K'" />
+                        </div>
+                        <div class="wallet-card-content">
+                            <h3 class="wallet-card-title">Trust Wallet</h3>
+                            <p class="wallet-card-desc">Mobile wallet with multi-chain support</p>
+                            <button class="wallet-connect-btn" data-wallet="trust" aria-label="Connect Trust Wallet">Connect Trust Wallet</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Image fallback handler -->
+    <script>
+        // Ensure all wallet images load properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const walletImages = document.querySelectorAll('.wallet-icon img');
+
+            walletImages.forEach(img => {
+                // Add error handling for failed image loads
+                img.addEventListener('error', function() {
+                    console.warn('Wallet image failed to load:', this.src);
+                    // The onerror attribute in the HTML will handle the fallback
+                });
+
+                // Add load event for successful loads
+                img.addEventListener('load', function() {
+                    console.log('Wallet image loaded successfully:', this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
